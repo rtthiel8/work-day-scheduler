@@ -1,23 +1,23 @@
 var dateToday = moment().format('MMMM Do YYYY');
 
-
 document.getElementById("currentDay").innerHTML = dateToday;
 
-const now = moment().format("hhA");
-//    console.log(now.format("hhA"));
+const now = moment().format("hh");
 
 $(document).ready(function () {
     $('.hour').each(function () {
         var i = $(this).attr('id');
         console.log(i);
-    });
-    if ('id' > now) {
-       $('.hour').addClass('.future') 
+
+    if (Number(i) > Number(now)) {
+       $('#' + i).addClass('future') 
     }
-    if ('id' < now) {
-       $('.hour').addClass('.past')
+    if (Number(i) < Number(now)) {
+       $('#' + i).addClass('past')
     }
-    if ('id' === now) {
-       $('.hour').addClass('.present')
+    if (Number(i) === Number(now)) {
+       $('#' + i).addClass('present')
     }
+  });
+
 });
